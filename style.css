@@ -21,6 +21,10 @@ body {
     overflow-x: hidden;
 }
 
+section {
+    scroll-margin-top: 80px;
+}
+
 .navbar {
     position: fixed;
     top: 0;
@@ -93,8 +97,9 @@ body {
 
 .hero {
     position: relative;
-    margin-top: 80px;
-    min-height: 80vh;
+    margin-top: 0;
+    padding-top: 80px;
+    min-height: 100vh;
     background: url('assets/hero.jpg') center/cover no-repeat;
     display: flex;
     align-items: center;
