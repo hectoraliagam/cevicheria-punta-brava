@@ -1,9 +1,11 @@
 document.addEventListener("DOMContentLoaded", function() {
     const fadeElements = document.querySelectorAll('.fade-in');
+    
     const appearOptions = {
         threshold: 0.15,
         rootMargin: "0px 0px -50px 0px"
     };
+    
     const appearOnScroll = new IntersectionObserver(function(entries, observer) {
         entries.forEach(entry => {
             if (!entry.isIntersecting) {
@@ -14,11 +16,27 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
     }, appearOptions);
+    
     fadeElements.forEach(el => {
         appearOnScroll.observe(el);
     });
-    const hamburger = document.querySelector('.hamburger');
+
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+    const closeMenu = document.getElementById('close-menu');
+    const links = document.querySelectorAll('.nav-links a');
+
     hamburger.addEventListener('click', () => {
-        alert("Navegación móvil: Aquí se desplegaría el menú. Para el diseño final, los clientes usarán principalmente los botones grandes de la pantalla (Hero).");
+        navLinks.classList.add('active');
+    });
+
+    closeMenu.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+    });
+
+    links.forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+        });
     });
 });
